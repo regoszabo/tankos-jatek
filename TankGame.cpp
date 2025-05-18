@@ -1,4 +1,4 @@
-// TankGame.cpp – frissített változat: szélzsák a terrain felszínéhez igazítva
+
 #include "TankGame.hpp"
 #include "KepBetolto.hpp"
 #include <ctime>
@@ -129,7 +129,7 @@ void TankGame::jatek_fut(const event& ev) {
          << line_to(tx + 20, ty - 5)
          << line_to(tx + 10, ty - 15);
 
-    // szélzsák pontosan a terep felszínére
+
     int kozep_x = SCREEN_WIDTH / 2;
     int felszin_y = terrain->get_height(kozep_x);
     gout << color(255, 255, 255)
@@ -162,8 +162,8 @@ void TankGame::jatek_vege_kezeles(const event& ev) {
 }
 
 void TankGame::eletek_frissit() {
-    eletek1->set_text("Tank1: " + to_string(tank1->get_hp()) + " HP");
-    eletek2->set_text("Tank2: " + to_string(tank2->get_hp()) + " HP");
+    eletek1->set_text("Green Tank: " + to_string(tank1->get_hp()) + " HP");
+    eletek2->set_text("Red Tank: " + to_string(tank2->get_hp()) + " HP");
 }
 
 void TankGame::szel_frissit_szoveg() {
