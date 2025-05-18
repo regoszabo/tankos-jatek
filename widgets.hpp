@@ -1,0 +1,24 @@
+#ifndef WIDGETS_HPP_INCLUDED
+#define WIDGETS_HPP_INCLUDED
+
+#include "graphics.hpp"
+
+class Widget {
+protected:
+    int _x, _y, _size_x, _size_y;
+    bool _focused = false;
+
+public:
+    Widget(int x, int y, int sx, int sy);
+    virtual bool is_selected(int mouse_x, int mouse_y);
+    virtual void draw() = 0;
+    virtual void handle(genv::event ev) = 0;
+
+    void set_position(int x, int y);
+    void set_size(int sx, int sy);
+
+    void set_focus(bool f);
+    bool is_focused() const;
+};
+
+#endif
