@@ -15,7 +15,7 @@ Bullet::Bullet(const Tank& tank, int szog, int ero, int szel_ero, int szel_irany
     vx = cos(rad) * ero * irany + szel_ero * 0.5;
     vy = -sin(rad) * ero;
 
-    utvonal.emplace_back((int)x, (int)y); // elsõ pont
+    utvonal.emplace_back((int)x, (int)y);
 }
 
 void Bullet::update() {
@@ -24,15 +24,15 @@ void Bullet::update() {
     vy += gravity;
     vx *= (1.0f - drag);
 
-    utvonal.emplace_back((int)x, (int)y); // pont hozzáadása
+    utvonal.emplace_back((int)x, (int)y);
 }
 
 void Bullet::draw() const {
     if (utvonal.empty()) return;
 
-    gout << color(255, 255, 0); // sárga röppálya
+    gout << color(255, 255, 0);
 
-    // összekötjük a pontokat
+
     auto prev = utvonal[0];
     for (size_t i = 1; i < utvonal.size(); ++i) {
         auto curr = utvonal[i];
@@ -40,7 +40,6 @@ void Bullet::draw() const {
         prev = curr;
     }
 
-    // aktuális pozíció kiemelve
     gout << move_to((int)x, (int)y) << dot;
 }
 
